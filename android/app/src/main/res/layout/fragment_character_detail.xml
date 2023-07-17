@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="character"
+            type="com.example.starwarsdemo.network.model.Character" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.characters.CharacterDetailFragment">
+
+        <ImageView
+            android:id="@+id/character_item"
+            android:layout_width="0dp"
+            android:layout_height="500dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:characterImageUrl="@{character.imageUrl}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/characterDetail_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@{character.name}"
+            android:alpha="0"
+            android:textAlignment="center"
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:background="@color/character_name_background"
+            app:layout_constraintBottom_toBottomOf="@+id/character_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/characterDetail_DescriptionArea"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/character_item">
+
+            <TextView
+                android:id="@+id/characterDetail_Height"
+                style="@style/CharacterDetail.TextRow"
+                android:text="@{@string/character_desc_height(character.height)}" />
+
+            <TextView
+                android:id="@+id/characterDetail_Mass"
+                style="@style/CharacterDetail.TextRow"
+                android:text="@{@string/character_desc_mass(character.mass)}"  />
+
+            <TextView
+                android:id="@+id/characterDetail_HairColor"
+                style="@style/CharacterDetail.TextRow"
+                android:text="@{@string/character_desc_hair_color(character.hairColor)}"  />
+
+            <TextView
+                android:id="@+id/characterDetail_Gender"
+                style="@style/CharacterDetail.TextRow"
+                android:text="@{@string/character_desc_gender(character.gender)}"  />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

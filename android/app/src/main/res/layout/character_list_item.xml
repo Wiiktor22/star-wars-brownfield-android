@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="characterImageUrl"
+            type="String" />
+    </data>
+
+    <ImageView
+        android:id="@+id/character_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:padding="2dp"
+        tools:src="@tools:sample/backgrounds/scenic"
+        app:characterImageUrl="@{characterImageUrl}" />
+</layout>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Star Wars Demo</string>
+    <string name="title_home">Home</string>
+    <string name="title_characters">Characters</string>
+    <string name="title_movies">Movies</string>
+    <string name="star_wars_title">Star Wars: %1$s</string>
+    <string name="star_wars_producer">Producer: %1$s</string>
+    <string name="star_wars_director">Director: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie_destination_label">{TITLE_NAV_AGRUMENT}</string>
+    <string name="character_destination_label">{CHARACTER_NAME_NAV_ARGUMENT}</string>
+
+    <!--  Character Description Area  -->
+    <string name="character_desc_height">Height: %1$s cm</string>
+    <string name="character_desc_mass">Mass: %1$s kg</string>
+    <string name="character_desc_hair_color">Hair color: %1$s</string>
+    <string name="character_desc_gender">Gender: %1$s</string>
+</resources>

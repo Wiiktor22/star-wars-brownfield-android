@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="movie"
+            type="com.example.starwarsdemo.network.model.Movie" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.movies.MovieDetailFragment"
+
+        >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/shapeableImageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="50dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:movieImageUrl="@{movie.imageUrl}"
+            app:shapeAppearanceOverlay="@style/MoviePosterShape.DetailPreview"
+            android:elevation="8dp"
+            android:background="@drawable/poster_shadow"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="25dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shapeableImageView">
+
+            <TextView
+                android:id="@+id/movieDetailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{@string/star_wars_title(movie.title)}"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textColor="@color/md_theme_dark_primaryContainer"
+                android:textFontWeight="@integer/material_motion_duration_long_1" />
+
+            <TextView
+                android:id="@+id/movieDetailProducer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{@string/star_wars_producer(movie.producer)}"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <TextView
+                android:id="@+id/movieDetailDirector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{@string/star_wars_director(movie.director)}"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <TextView
+                android:id="@+id/movieDetailReleaseDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{movie.releaseDate}"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="?android:attr/textColorTertiary" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
