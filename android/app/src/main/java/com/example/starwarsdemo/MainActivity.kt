@@ -9,14 +9,16 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.starwarsdemo.databinding.ActivityMainBinding
+import com.example.starwarsdemo.databinding.FragmentCharactersBinding
+import com.example.starwarsdemo.ui.characters.CharactersListAdapter
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 
 class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
     private lateinit var binding: ActivityMainBinding
 
-    // NOTE: Store the charactersView in order to prevent fragment destruction (Fragment not Fragment's View)!
-    var charactersView: View? = null
+    // NOTE: Store the charactersFragmentBinding in order to prevent fragment destruction (Fragment not Fragment's View)!
+    var charactersFragmentBinding: FragmentCharactersBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

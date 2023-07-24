@@ -58,26 +58,23 @@ class CharactersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val savedCharactersView = (activity as MainActivity).charactersView
+        var savedCharactersFragmentBinding = (activity as MainActivity).charactersFragmentBinding
 
-        if (savedCharactersView == null) {
-            val binding = FragmentCharactersBinding.inflate(inflater)
+        if (savedCharactersFragmentBinding == null) {
+            savedCharactersFragmentBinding = FragmentCharactersBinding.inflate(inflater)
 
-            binding.charactersList.adapter = CharactersListAdapter()
-
-            binding.charactersList.addOnScrollListener(CharactersListOnScrollListener(viewModel, context))
-
-            binding.viewModel = viewModel
-
-            binding.lifecycleOwner = this
-
-            (activity as MainActivity).charactersView = binding.root
-
-            return binding.root
+            savedCharactersFragmentBinding.charactersList.adapter = CharactersListAdapter()
         }
 
-        // NOTE: Read from the activity
-        return savedCharactersView
+        savedCharactersFragmentBinding.charactersList.addOnScrollListener(CharactersListOnScrollListener(viewModel, context))
+
+        savedCharactersFragmentBinding.viewModel = viewModel
+
+        savedCharactersFragmentBinding.lifecycleOwner = this
+
+        (activity as MainActivity).charactersFragmentBinding = savedCharactersFragmentBinding
+
+        return savedCharactersFragmentBinding.root
     }
 
 }
