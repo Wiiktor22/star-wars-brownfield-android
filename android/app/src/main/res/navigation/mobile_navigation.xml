@@ -16,12 +16,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.starwarsdemo.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.example.starwarsdemo.ui.movies.MovieDetailFragment"
         android:label="@string/movie_destination_label"
@@ -50,5 +44,10 @@
         android:name="com.example.starwarsdemo.ui.characters.CharacterDetailFragment"
         android:label="@string/character_destination_label"
         tools:layout="@layout/fragment_character_detail" />
+    <fragment
+        android:id="@+id/navigation_vehicles"
+        android:name="com.example.starwarsdemo.ui.reactnative.VehiclesReactNative"
+        android:label="@string/title_vehicles"
+        tools:layout="@layout/fragment_vehicles_react_native" />
 
 </navigation>

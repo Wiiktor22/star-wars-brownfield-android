@@ -45,14 +45,10 @@ class CharactersViewModel: ViewModel() {
                     async { StarWarsApi.retrofitService.getCharacters(3) },
                 )
 
-//                val moviesDiffered = async { StarWarsApi.retrofitService.getMovies() }
-
                 val flattenResults = mergedCharactersResponse.awaitAll().flatMap { it.results }
                 withContext(Dispatchers.Main) {
                     _people.value = DataTransformer.charactersFromCharactersJson(flattenResults)
                 }
-
-//                val movies = moviesDiffered.await().results
                 _status.value = ApiStatus.SUCCESS
             } catch (e: Exception) {
                 _people.value = emptyList()
@@ -69,13 +65,13 @@ class CharactersViewModel: ViewModel() {
             try {
                 _currentIndex.value?.let {
                     val newPage = it.plus(1)
-                    _currentIndex.value = newPage
                     val response = StarWarsApi.retrofitService.getCharacters(newPage)
 
                     if (response.results.isNotEmpty()) {
                         withContext(Dispatchers.Main) {
                             _people.apply {
                                 value = value?.plus(DataTransformer.charactersFromCharactersJson(response.results))
+                                _currentIndex.value = newPage
                             }
                         }
                     }

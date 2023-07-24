@@ -9,8 +9,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.starwarsdemo.databinding.ActivityMainBinding
+import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_movies, R.id.navigation_characters, R.id.navigation_home,
+                R.id.navigation_movies, R.id.navigation_characters, R.id.navigation_vehicles,
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -41,4 +42,10 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+    override fun invokeDefaultOnBackPressed() {
+        super.onBackPressed();
+    }
+
+
 }

@@ -18,7 +18,7 @@ class MyReactApplication : Application(), ReactApplication {
         object : ReactNativeHost(this) {
             override fun getUseDeveloperSupport() = BuildConfig.DEBUG
             override fun getPackages(): List<ReactPackage> {
-                val packages = PackageList(this).getPackages().toMutableList()
+                val packages = PackageList(this).packages.toMutableList()
                 // Packages that cannot be autolinked yet can be added manually here
                 return packages
             }
