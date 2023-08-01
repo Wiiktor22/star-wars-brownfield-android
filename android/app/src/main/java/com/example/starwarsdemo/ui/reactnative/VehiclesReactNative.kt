@@ -13,13 +13,11 @@ class VehiclesReactNative : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         return inflater.inflate(R.layout.fragment_vehicles_react_native, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         val reactNativeFragment = ReactFragment.Builder()
             .setComponentName("VehiclesRNScreen")
